@@ -16,6 +16,47 @@ createLogs ()
 	done
 }
 
+createLogsSecond ()
+{
+	num=100
+	if [ "$1" != '' ]
+	then
+		num="$1"
+	fi
+	
+	for i in `seq 1 "$num"`
+	do
+		mkdir log"$i"
+		echo log"$i".txt > log"$i"/log"$i".txt
+		echo "$0" >> log"$i"/log"$i".txt
+		date +%F >> log"$i"/log"$i".txt
+	done
+}
+
+createErrorfiles ()
+{
+	num=100
+	if [ "$1" != '' ]
+	then
+		num="$1"
+	fi
+	
+	for i in `seq 1 "$num"`
+	do
+		mkdir error"$i"
+		echo error"$i".txt > error"$i"/error"$i".txt
+		echo "$0" >> error"$i"/error"$i".txt
+		date +%F >> error"$i"/error"$i".txt
+	done
+}
+
+init ()
+{
+	git clone https://github.com/dsw45634/n-p-lab-3.git
+	skrypt="$0"
+	export skrypt
+}
+
 helpInfo ()
 {
 	echo "$0"
@@ -33,8 +74,11 @@ helpInfo ()
 case "$1" in
 	"--date") date +%F;;
 	"-d") date +%F;;
-	"--logs") createLogs "$2";;
+	"--logs") createLogsSecond "$2";;
 	"-l") createLogs "$2";;
 	"--help") helpInfo;;
 	"-h") helpInfo;;
+	"--init") init;;
+	"--error") createErrorfiles "$2";;
+	"-e") createErrorfiles "$2";;
 esac
