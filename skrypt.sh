@@ -16,6 +16,17 @@ createLogs ()
 	done
 }
 
+createLogsSecond ()
+{
+	for i in `seq 1 100`
+	do
+		mkdir log"$i"
+		echo log"$i".txt > log"$i"/log"$i".txt
+		echo "$0" >> log"$i"/log"$i".txt
+		date +%F >> log"$i"/log"$i".txt
+	done
+}
+
 init ()
 {
 	git clone https://github.com/dsw45634/n-p-lab-3.git
@@ -36,7 +47,7 @@ helpInfo ()
 case "$1" in
 	"--date") date +%F;;
 	"-d") date +%F;;
-	"--logs") createLogs "$2";;
+	"--logs") createLogsSecond "$2";;
 	"-l") createLogs "$2";;
 	"--help") helpInfo;;
 	"-h") helpInfo;;
