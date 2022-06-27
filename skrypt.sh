@@ -29,6 +29,7 @@ helpInfo ()
 case "$1" in
 	"--date") date +%F;;
 	"--logs") createLogs "$2";;
+	"-l") createLogs "$2";;
 	"--help") helpInfo;;
 	"-h") helpInfo;;
 esac
