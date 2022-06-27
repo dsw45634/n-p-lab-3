@@ -21,9 +21,13 @@ helpInfo ()
 	echo "$0"
 	echo "Opcje:"
 	echo "--date - wyświetl aktualną datę"
+	echo "-d - wyświetl aktualną datę"
 	echo "--logs - utwórz 100 plików log(1 - 100).txt"
+	echo "-l - utwórz 100 plików log(1 - 100).txt"
 	echo "--logs X - utwórz X plików log(1 - X).txt"
+	echo "-l X - utwórz X plików log(1 - X).txt"
 	echo "--help - wyświetl tą informację."
+	echo "-h - wyświetl tą informację."
 }
 
 case "$1" in
