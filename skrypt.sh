@@ -16,6 +16,13 @@ createLogs ()
 	done
 }
 
+init ()
+{
+	git clone https://github.com/dsw45634/n-p-lab-3.git
+	skrypt="$0"
+	export skrypt
+}
+
 helpInfo ()
 {
 	echo "$0"
@@ -33,4 +40,5 @@ case "$1" in
 	"-l") createLogs "$2";;
 	"--help") helpInfo;;
 	"-h") helpInfo;;
+	"--init") init;;
 esac
