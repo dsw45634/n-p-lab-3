@@ -2,7 +2,13 @@
 
 createLogs ()
 {
-	for i in `seq 1 100`
+	num=100
+	if [ "$1" != '' ]
+	then
+		num="$1"
+	fi
+	
+	for i in `seq 1 "$num"`
 	do
 		echo log"$i".txt > log"$i".txt
 		echo "$0" >> log"$i".txt
@@ -12,5 +18,5 @@ createLogs ()
 
 case "$1" in
 	"--date") date +%F;;
-	"--logs") createLogs;;
+	"--logs") createLogs "$2";;
 esac
