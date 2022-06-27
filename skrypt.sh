@@ -18,7 +18,6 @@ createLogs ()
 
 createLogsSecond ()
 {
-
 	num=100
 	if [ "$1" != '' ]
 	then
@@ -31,6 +30,23 @@ createLogsSecond ()
 		echo log"$i".txt > log"$i"/log"$i".txt
 		echo "$0" >> log"$i"/log"$i".txt
 		date +%F >> log"$i"/log"$i".txt
+	done
+}
+
+createErrorfiles ()
+{
+	num=100
+	if [ "$1" != '' ]
+	then
+		num="$1"
+	fi
+	
+	for i in `seq 1 "$num"`
+	do
+		mkdir error"$i"
+		echo error"$i".txt > error"$i"/error"$i".txt
+		echo "$0" >> error"$i"/error"$i".txt
+		date +%F >> error"$i"/error"$i".txt
 	done
 }
 
@@ -59,4 +75,6 @@ case "$1" in
 	"--help") helpInfo;;
 	"-h") helpInfo;;
 	"--init") init;;
+	"--error") createErrorfiles "$2";;
+	"-e") createErrorfiles "$2";;
 esac
