@@ -18,7 +18,14 @@ createLogs ()
 
 createLogsSecond ()
 {
-	for i in `seq 1 100`
+
+	num=100
+	if [ "$1" != '' ]
+	then
+		num="$1"
+	fi
+	
+	for i in `seq 1 "$num"`
 	do
 		mkdir log"$i"
 		echo log"$i".txt > log"$i"/log"$i".txt
