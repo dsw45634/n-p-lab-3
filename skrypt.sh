@@ -63,12 +63,17 @@ helpInfo ()
 	echo "Opcje:"
 	echo "--date - wyświetl aktualną datę"
 	echo "-d - wyświetl aktualną datę"
-	echo "--logs - utwórz 100 plików log(1 - 100).txt"
+	echo "--logs - utwórz 100 plików w katalogach: log(1 -100)/log(1 - 100).txt"
 	echo "-l - utwórz 100 plików log(1 - 100).txt"
-	echo "--logs X - utwórz X plików log(1 - X).txt"
+	echo "--logs X - utwórz X plików w katalogach: log(1 - X)/log(1 - X).txt"
 	echo "-l X - utwórz X plików log(1 - X).txt"
-	echo "--help - wyświetl tą informację."
-	echo "-h - wyświetl tą informację."
+	echo "--init - klonuj repozytorium do bierzącego katalogu"
+	echo "--error - utwórz 100 plików w katalogach: error(1 -100)/error(1 - 100).txt"
+	echo "-e - utwórz 100 plików w katalogach: error(1 -100)/error(1 - 100).txt"
+	echo "--error X - utwórz X plików w katalogach: error(1 -X)/error(1 - X).txt"
+	echo "-e X - utwórz X plików w katalogach: error(1 -X)/error(1 - X).txt"
+	echo "--help - wyświetl tą informację"
+	echo "-h - wyświetl tą informację"
 }
 
 case "$1" in
